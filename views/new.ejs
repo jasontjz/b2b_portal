@@ -1,0 +1,90 @@
+<%- include("../views/partials/header.ejs") %>
+
+<div class="container">
+  <h2>Add New Products</h2>
+  <form method="POST" action="/products">
+    <!-- sku -->
+    <div class="mb-3">
+      <label for="sku" class="form-label">SKU:</label>
+      <input type="text" name="sku" class="form-control" />
+    </div>
+    <!-- name -->
+    <div class="mb-3">
+      <label for="name" class="form-label">Name:</label>
+      <input type="text" name="name" class="form-control" />
+    </div>
+    <!-- productType -->
+    <div class="mb-3">
+      <label for="productType" class="form-label">Product Type:</label>
+      <input type="text" name="productType" class="form-control" />
+    </div>
+    <!-- category -->
+    <div class="mb-3">
+      <label for="category" class="form-label">Category:</label>
+      <input type="text" name="category" class="form-control" />
+    </div>
+    <!-- manufacturer -->
+    <div class="mb-3">
+      <label for="manufacturer" class="form-label">Manufacturer:</label>
+      <input type="text" name="manufacturer" class="form-control" />
+    </div>
+
+    <!-- title -->
+    <div class="mb-3">
+      <label for="title" class="form-label">Product Title:</label>
+      <input type="text" name="title" class="form-control" />
+    </div>
+
+    <!-- description -->
+    <div class="mb-3">
+      <label for="description" class="form-label">Product Description:</label>
+      <input type="text" name="description" class="form-control" />
+    </div>
+
+    <!-- compatibility -->
+    <div class="mb-3">
+      <label for="compatibility" class="form-label">Compatibility:</label>
+      <input type="text" name="compatibility" class="form-control" />
+    </div>
+
+    <!-- material -->
+    <div class="mb-3">
+      <label for="material" class="form-label">Material:</label>
+      <input type="text" name="material" class="form-control" />
+    </div>
+
+    <!-- weight -->
+    <div class="mb-3">
+      <label for="weight" class="form-label">Weight:</label>
+      <input type="number" name="weight" class="form-control" />
+    </div>
+
+    <!-- img -->
+    <div class="mb-3">
+      <label for="img" class="form-label">Image URL:</label>
+      <input type="text" name="img" class="form-control" />
+    </div>
+
+    <!-- price -->
+    <div class="mb-3">
+      <label for="price" class="form-label">Price:</label>
+      <input type="number" name="price" class="form-control" />
+    </div>
+
+    <!-- qty -->
+    <div class="mb-3">
+      <label for="qty" class="form-label">Quantity:</label>
+      <input type="number" name="qty" class="form-control" />
+    </div>
+
+    <div>
+      <input
+        type="submit"
+        class="btn btn-primary mb-3"
+        value="Add new product"
+      />
+    </div>
+  </form>
+</div>
+
+<%- include("../views/partials/footer.ejs") %>

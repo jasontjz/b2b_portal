@@ -5,9 +5,14 @@
   <img width="250" src="<%= product.img %>" />
 
   <h6>$<%= product.price %></h6>
-  <h6>Product Info: <%= product.description %></h6>
-  <p>Available Qty: <%= product.qty %></p>
-  <form method="POST" action="/buy/<%= product.id %>?_method=PUT">
+  <h6>Title: <%= product.title %></h6>
+  <h6>Description: <%= product.description %></h6>
+  <h6>Manufacturer: <%= product.manufacturer %></h6>
+  <h6>Compatibility: <%= product.compatibility %></h6>
+  <h6>Material: <%= product.material %></h6>
+  <h6>Weight: <%= product.weight %>g</h6>
+  <p>Available Qty: <%= product.qty %>pcs</p>
+  <form method="POST" action="/products/buy/<%= product.id %>?_method=PUT">
     <div class="mb-3">
       <% if(product.qty>0){%>
       <label for="qty" class="form-label">Qty to Purchase</label>
