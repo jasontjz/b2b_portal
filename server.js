@@ -4,9 +4,8 @@ const session = require("express-session");
 const mongoose = require("mongoose");
 const methodOverride = require("method-override");
 // multer is a middleware to handle file uploads automatically
-const multer = require("multer");
+// const multer = require("multer");
 const app = express();
-const productsModel = require("./models/products");
 
 //controllers
 const homepageController = require("./controllers/homepageController");
@@ -147,9 +146,9 @@ app.use("/products", productsController);
 //   res.send("seeding the B2B portal");
 // });
 
-app.listen(3000);
+const server = app.listen(process.env.PORT);
 
-process.on("SIGTERM", () => {
+process.on("SIGINT", () => {
   console.log("My process is exiting");
   server.close(() => {
     dbConnection.close();
