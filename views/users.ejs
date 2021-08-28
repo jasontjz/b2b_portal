@@ -1,0 +1,13 @@
+<html>
+  <header>View Users</header>
+  <body>
+    <h1>View All Users</h1>
+    <div class="user-container">
+      <% for (let user of allUsers) { %>
+      <div class="col-1 product">
+        <p><%= allUsers.username %><br />$<%=allUsers.password %></p>
+      </div>
+      <% } %>
+    </div>
+  </body>
+</html>

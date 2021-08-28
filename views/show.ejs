@@ -12,6 +12,13 @@
   <h6>Material: <%= product.material %></h6>
   <h6>Weight: <%= product.weight %>g</h6>
   <p>Available Qty: <%= product.qty %>pcs</p>
+  <!-- CUSTOMER OR STAFF? -->
+  <% if(role==="admin"){%>
+  <a href="/products/<%= product.id %>/edit" class="btn btn-primary"
+    >EDIT PRODUCT DETAILS</a
+  >
+  <% }else {%>
+
   <form method="POST" action="/products/buy/<%= product.id %>?_method=PUT">
     <div class="mb-3">
       <% if(product.qty>0){%>
@@ -30,13 +37,10 @@
       <% if(product.qty>0){%>
       <input type="submit" class="btn btn-danger mb-3" value="BUY NOW" />
       <% } else { %>
-      <h4>OUT OF STOCK</h4>
+      <h4>SOLD OUT</h4>
       <% } %>
     </div>
   </form>
-
-  <a href="/products/<%= product.id %>/edit" class="btn btn-primary"
-    >EDIT PRODUCT DETAILS</a
-  >
+  <% } %>
 </div>
 <%- include("../views/partials/footer.ejs") %>

@@ -11,6 +11,7 @@ const app = express();
 const homepageController = require("./controllers/homepageController");
 const productsController = require("./controllers/productsController");
 const testingController = require("./controllers/testingController");
+const userController = require("./controllers/userController");
 
 require("dotenv").config();
 
@@ -40,8 +41,14 @@ dbConnection.on("disconnected", () =>
 
 app.use(express.static("public"));
 
+app.use((req, res, next) => {
+  res.locals.username = req.session.username;
+  res.locals.role = req.session.role;
+  next();
+});
+
 app.use(homepageController);
-// app.use("/users", userController);
+app.use("/users", userController);
 app.use("/products", productsController);
 app.use("/testing", testingController);
 

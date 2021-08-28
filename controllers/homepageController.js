@@ -9,6 +9,8 @@ homepageController.get("/", async (req, res) => {
     .sort({ name: "desc" })
     .limit(999)
     .exec();
+  //logged out message
+  // const userStatus = req.query.logout === "true" ? "You are logged out" : null;
 
   //send the product variable to the ejs
   res.render("homepage.ejs", {
