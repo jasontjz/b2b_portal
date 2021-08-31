@@ -12,6 +12,7 @@ const homepageController = require("./controllers/homepageController");
 const productsController = require("./controllers/productsController");
 const testingController = require("./controllers/testingController");
 const userController = require("./controllers/userController");
+const contactController = require("./controllers/contactController");
 
 require("dotenv").config();
 
@@ -51,6 +52,7 @@ app.use(homepageController);
 app.use("/users", userController);
 app.use("/products", productsController);
 app.use("/testing", testingController);
+app.use("/contact", contactController);
 
 // app.use("*", (req, res) => {
 //   res.status(404);
