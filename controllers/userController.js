@@ -1,5 +1,6 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
+const passport = require("passport-local");
 const userControllerData = require("../models/users");
 const userController = express.Router();
 
