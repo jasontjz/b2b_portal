@@ -8,7 +8,7 @@ productsController.use("/", (req, res, next) => {
   if (req.body.role === "customer") {
     next();
   } else {
-    res.redirect("/");
+    res.render("../views/signup.ejs");
   }
 });
 
