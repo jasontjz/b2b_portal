@@ -45,7 +45,7 @@ userController.post("/login", async (req, res) => {
   if (bcrypt.compareSync(req.body.password, selectedUser.password)) {
     req.session.username = selectedUser.username;
     req.session.role = selectedUser.role;
-    res.redirect("/");
+    res.redirect("/?login=true");
   } else {
     res.send("wrong password");
   }

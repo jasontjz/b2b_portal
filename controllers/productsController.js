@@ -5,7 +5,7 @@ const productsController = express.Router();
 //MIDDLEWARE TO PROTECT ALL PRODUCTS ROUTES
 
 productsController.use("/", (req, res, next) => {
-  if (req.body.role === "customer") {
+  if (req.body.role === "customer" || "admin") {
     next();
   } else {
     res.render("../views/signup.ejs");
@@ -22,8 +22,13 @@ productsController.get("/add", (req, res) => {
 productsController.get("/:id", async (req, res) => {
   // get the single post by post id
   const selectedProduct = await productsControllerData.findById(req.params.id);
+  const success = req.query.success;
+  const action = req.query.action;
+
   res.render("../views/show.ejs", {
     product: selectedProduct,
+    success,
+    action,
   });
 });
 

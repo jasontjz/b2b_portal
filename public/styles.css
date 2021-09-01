@@ -1,3 +1,8 @@
+body {
+  background-image: url("https://images.unsplash.com/photo-1454117096348-e4abbeba002c");
+  font-family: "Electrolize", sans-serif;
+}
+
 #title {
   text-align: center;
 }
@@ -55,4 +60,10 @@ a:visited {
 
 a:hover {
   color: red;
+}
+
+.alert {
+  margin: 20 auto;
+  text-align: center;
+  width: 500;
 }

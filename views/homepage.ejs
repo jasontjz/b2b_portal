@@ -1,32 +1,35 @@
 <%- include("partials/header.ejs") %>
-<div id="title">
-  <% if(username){ %>
-  <h2>Hello, <%=username%></h2>
-  <% if(role==="admin"){%>
-  <h4>Maintain the products below</h4>
-  <% } else {%>
-  <h4>Browse our products below</h4>
-  <% } %>
-  <div class="product-container">
-    <% for (let product of productsController) { %>
-    <div class="col-1 product">
-      <a class="product-link" href="/products/<%= product.id %>">
-        <div class="image-container">
-          <img class="product-image" width="180" src="<%=product.img%>" />
-        </div>
-        <p>
-          <%= product.name %><br />$<%=product.price %> each<br /><%if(product.qty>0){%>
-          <%=product.qty%> pcs left <%}else{%> SOLD OUT <%}%>
-        </p></a
-      >
-    </div>
+<div>
+  <%- include("partials/alert.ejs") %>
+  <div id="title">
+    <% if(username){ %>
+    <h2>Hello, <%=username%></h2>
+    <% if(role==="admin"){%>
+    <h4>Maintain the products below</h4>
+    <% } else {%>
+    <h4>Browse our products below</h4>
     <% } %>
-  </div>
+    <div class="product-container">
+      <% for (let product of productsController) { %>
+      <div class="col-1 product">
+        <a class="product-link" href="/products/<%= product.id %>">
+          <div class="image-container">
+            <img class="product-image" width="180" src="<%=product.img%>" />
+          </div>
+          <p>
+            <%= product.name %><br />$<%=product.price %> each<br /><%if(product.qty>0){%>
+            <%=product.qty%> pcs left <%}else{%> SOLD OUT <%}%>
+          </p></a
+        >
+      </div>
+      <% } %>
+    </div>
 
-  <%}else{%>
-  <h4>Please log in to proceed</h4>
-  <h6>If you don't have an account yet, please sign up first</h6>
-  <%}%>
+    <%}else{%>
+    <h4>Please log in to proceed</h4>
+    <h6>If you don't have an account yet, please sign up first</h6>
+    <%}%>
+  </div>
 </div>
 
 <%- include("partials/footer.ejs") %>

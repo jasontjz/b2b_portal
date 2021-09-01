@@ -1,46 +1,48 @@
 <%- include("../views/partials/header.ejs") %>
+<div>
+  <%- include("partials/alert.ejs") %>
+  <div class="container">
+    <h3><%= product.name %></h3>
+    <img width="250" src="<%= product.img %>" />
 
-<div class="container">
-  <h3><%= product.name %></h3>
-  <img width="250" src="<%= product.img %>" />
+    <h6>$<%= product.price %></h6>
+    <h6>Title: <%= product.title %></h6>
+    <h6>Description: <%= product.description %></h6>
+    <h6>Manufacturer: <%= product.manufacturer %></h6>
+    <h6>Compatibility: <%= product.compatibility %></h6>
+    <h6>Material: <%= product.material %></h6>
+    <h6>Weight: <%= product.weight %>g</h6>
+    <p>Available Qty: <%= product.qty %>pcs</p>
+    <!-- CUSTOMER OR STAFF? -->
+    <% if(role==="admin"){%>
+    <a href="/products/<%= product.id %>/edit" class="btn btn-primary"
+      >EDIT PRODUCT DETAILS</a
+    >
+    <% }else {%>
 
-  <h6>$<%= product.price %></h6>
-  <h6>Title: <%= product.title %></h6>
-  <h6>Description: <%= product.description %></h6>
-  <h6>Manufacturer: <%= product.manufacturer %></h6>
-  <h6>Compatibility: <%= product.compatibility %></h6>
-  <h6>Material: <%= product.material %></h6>
-  <h6>Weight: <%= product.weight %>g</h6>
-  <p>Available Qty: <%= product.qty %>pcs</p>
-  <!-- CUSTOMER OR STAFF? -->
-  <% if(role==="admin"){%>
-  <a href="/products/<%= product.id %>/edit" class="btn btn-primary"
-    >EDIT PRODUCT DETAILS</a
-  >
-  <% }else {%>
-
-  <form method="POST" action="/products/buy/<%= product.id %>?_method=PUT">
-    <div class="mb-3">
-      <% if(product.qty>0){%>
-      <label for="qty" class="form-label">Qty to Purchase</label>
-      <input
-        id="purchase-qty"
-        type="number"
-        name="qty"
-        class="form-control"
-        value="1"
-        min="1"
-      />
-      <% } else { %> <% } %>
-    </div>
-    <div>
-      <% if(product.qty>0){%>
-      <input type="submit" class="btn btn-danger mb-3" value="BUY NOW" />
-      <% } else { %>
-      <h4>SOLD OUT</h4>
-      <% } %>
-    </div>
-  </form>
-  <% } %>
+    <form method="POST" action="/products/buy/<%= product.id %>?_method=PUT">
+      <div class="mb-3">
+        <% if(product.qty>0){%>
+        <label for="qty" class="form-label">Qty to Purchase</label>
+        <input
+          id="purchase-qty"
+          type="number"
+          name="qty"
+          class="form-control"
+          value="1"
+          min="1"
+        />
+        <% } else { %> <% } %>
+      </div>
+      <div>
+        <% if(product.qty>0){%>
+        <input type="submit" class="btn btn-danger mb-3" value="BUY NOW" />
+        <% } else { %>
+        <h4>SOLD OUT</h4>
+        <% } %>
+      </div>
+    </form>
+    <% } %>
+  </div>
 </div>
 <%- include("../views/partials/footer.ejs") %>
