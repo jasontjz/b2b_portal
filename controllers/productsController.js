@@ -2,6 +2,16 @@ const express = require("express");
 const productsControllerData = require("../models/products");
 const productsController = express.Router();
 
+//MIDDLEWARE TO PROTECT ALL PRODUCTS ROUTES
+
+productsController.use("/", (req, res, next) => {
+  if (req.body.role === "customer") {
+    next();
+  } else {
+    res.redirect("/");
+  }
+});
+
 //ADD PRODUCTS I
 productsController.get("/add", (req, res) => {
   // render the UI to create a new post
