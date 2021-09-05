@@ -17,7 +17,7 @@ userController.post("/signup", async (req, res) => {
       username: req.body.username,
       password: hashedPassword,
     });
-    res.send("OK, created");
+    res.redirect("/?success=true&action=signup");
   } catch (err) {
     res.send(`Unable to create  new account: ${err.message}`);
   }

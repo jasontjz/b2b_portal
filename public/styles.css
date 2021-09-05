@@ -59,11 +59,15 @@ a:visited {
 }
 
 a:hover {
-  color: red;
+  color: blue;
 }
 
 .alert {
   margin: 20 auto;
   text-align: center;
   width: 500;
+}
+
+.body-link {
+  text-decoration: underline;
 }

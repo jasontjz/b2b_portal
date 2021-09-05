@@ -8,6 +8,8 @@
   <div class="alert alert-danger" role="alert">
     Product successfully deleted
   </div>
+  <% } else if (action === "forbidden") { %>
+  <div class="alert alert-danger" role="alert">⚠️ Admins Only ⚠️</div>
   <% } %>
 </div>
 <% } %>

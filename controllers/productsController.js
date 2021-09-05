@@ -1,19 +1,10 @@
 const express = require("express");
 const productsControllerData = require("../models/products");
+const basicAuth = require("./basicAuth");
 const productsController = express.Router();
 
-//MIDDLEWARE TO PROTECT ALL PRODUCTS ROUTES
-
-productsController.use("/", (req, res, next) => {
-  if (req.body.role === "customer" || "admin") {
-    next();
-  } else {
-    res.render("../views/signup.ejs");
-  }
-});
-
 //ADD PRODUCTS I
-productsController.get("/add", (req, res) => {
+productsController.get("/add", basicAuth.authAdmin, (req, res) => {
   // render the UI to create a new post
   res.render("../views/new.ejs");
 });
@@ -57,7 +48,7 @@ productsController.post("/", async (req, res) => {
 });
 
 //SHOW EDIT PRODUCTS PAGE
-productsController.get("/:id/edit", async (req, res) => {
+productsController.get("/:id/edit", basicAuth.authAdmin, async (req, res) => {
   const selectedProduct = await productsControllerData.findById(req.params.id);
   res.render("../views/edit.ejs", {
     product: selectedProduct,
