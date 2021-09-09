@@ -54,7 +54,6 @@ a:link {
 }
 
 a:visited {
-  text-decoration: none;
   color: black;
 }
 
@@ -66,4 +65,12 @@ a:hover {
   margin: 20 auto;
   text-align: center;
   width: 500;
+}
+
+.hp-link {
+  font-weight: 900;
+}
+
+.sold-out {
+  color: darkred;
 }

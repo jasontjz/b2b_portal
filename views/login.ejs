@@ -1,4 +1,4 @@
-<%- include("partials/header.ejs") %>
+<%- include("partials/header.ejs") %> <%- include("partials/alert.ejs") %>
 <div class="container">
   <h2>Login</h2>
   <form method="POST" action="/users/login">
@@ -14,7 +14,10 @@
       <input type="submit" class="btn btn-primary mb-3" value="Login" />
     </div>
     <div>
-      <p>Don't have an account? Sign up <a class="body-link" href="/users/signup">here</a></p>
+      <p>
+        Don't have an account? Sign up
+        <a class="hp-link" href="/users/signup">here</a>
+      </p>
     </div>
   </form>
 </div>

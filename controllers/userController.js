@@ -5,7 +5,13 @@ const userControllerData = require("../models/users");
 const userController = express.Router();
 
 userController.get("/signup", (req, res) => {
-  res.render("signup.ejs");
+  const success = req.query.success;
+  const action = req.query.action;
+
+  res.render("signup.ejs", {
+    success,
+    action,
+  });
 });
 
 userController.post("/signup", async (req, res) => {
@@ -19,7 +25,7 @@ userController.post("/signup", async (req, res) => {
     });
     res.redirect("/?success=true&action=signup");
   } catch (err) {
-    res.send(`Unable to create  new account: ${err.message}`);
+    res.redirect("/users/signup?success=true&action=usernametaken");
   }
 });
 
@@ -28,9 +34,14 @@ userController.get("/login", (req, res) => {
   //     res.render("/login.ejs");
   //   }
   //   res.redirect("/");
-
   //SIMPLE LOGIN
-  res.render("login.ejs");
+  const success = req.query.success;
+  const action = req.query.action;
+
+  res.render("login.ejs", {
+    success,
+    action,
+  });
 });
 
 userController.post("/login", async (req, res) => {
@@ -39,7 +50,7 @@ userController.post("/login", async (req, res) => {
   });
 
   if (!selectedUser) {
-    return res.send("Username doesn't exist");
+    return res.redirect("/users/login?success=true&action=nousername");
   }
 
   if (bcrypt.compareSync(req.body.password, selectedUser.password)) {
@@ -47,14 +58,14 @@ userController.post("/login", async (req, res) => {
     req.session.role = selectedUser.role;
     res.redirect("/?login=true");
   } else {
-    res.send("wrong password");
+    res.redirect("/users/login?success=true&action=wrongpassword");
   }
 });
 
 userController.get("/logout", (req, res) => {
   req.session.destroy();
 
-  res.redirect("/?logout=true");
+  res.redirect("/?success=true&action=logout");
 });
 
 userController.get("/view", async (req, res) => {
