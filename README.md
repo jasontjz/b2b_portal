@@ -6,6 +6,10 @@ The purpose of this app is to allow a hypothetical spare parts supplier Bukit Ti
 
 This will allow each sales person to be more efficient with his or her time, prospecting for new business instead of logging down routine sales from regular customers, thus enabling the business to scale up quickly.
 
+The deployed and live app may be found on Heroku here:
+
+https://ga-b2b-portal.herokuapp.com/
+
     				------------------------------------------
 
 Structure and function
@@ -14,7 +18,7 @@ The B2B Portal is a CRUD (create, read, update, delete) app that uses the MVC (M
 
 https://miro.com/app/board/o9J_l1NQXLE=/
 
-The app initially starts with a 'home' page that contains links to a contact page, and invites the user to log in. Any other pages besides the home and contact page are inaccessible by non-registered viwers or non-users. Should a non-user attempt to type in even the correct URL to view products, he or she will be blocked and shown an error message.
+The app initially starts with a 'home' page that contains links to a contact page, and also invites the user to log in or sign up. Any other pages besides the home and contact page are inaccessible by non-registered viwers or non-users. Should a non-user attempt to type in even the correct URL to access products, he or she will be blocked and shown an error message.
 
 Upon logging in, a registered user is able to browse all the products on offer and make their purchase. They can view all the necessary information of each product ie: photos, technical information, price, stock, etc.
 
@@ -31,7 +35,7 @@ Upon the successful execution of signing up, logging in, creating a new product,
 CRUD & RESTful routes
 
 There exists 7 different types of routes:
-/homepage, /contact (GET): Displays all the products, Gets and displays the contact us details
+/homepage, /contact (GET): Displays all the products, Gets and displays the 'contact us' details
 /products/add (GET): Shows a form to create new products
 /products(POST): Adds new product to the database
 /products/:id (GET): Shows the info of one selected product
@@ -62,3 +66,9 @@ Express-session was used to detect when a particular user was logged in, or in s
 Route protection middleware
 
 A middleware code was written as a separate JS file/function and imported and required/inserted as a parameter on certain routes that required user authentication.
+
+---
+
+Google maps
+
+A Google maps iframe was inserted in the contact us page to allow users to navigate to the business's physical address
