@@ -2,7 +2,7 @@
 
 This is the readme for the B2B Portal app that I have created for GA:SEIF 6 Project 2.
 
-The purpose of this app is to allow a spare parts supplier be able to easily and quickly sell products to their business customers such as workshops and service centres that specialize in repairing motor vehicles and bikes.
+The purpose of this app is to allow a hypothetical spare parts supplier Bukit Timah Auto & Cycle Supplies Pte Ltd be able to easily and quickly sell products to their business customers such as workshops and service centres that specialize in repairing motor vehicles and bikes.
 
 This will allow each sales person to be more efficient with his or her time, prospecting for new business instead of logging down routine sales from regular customers, thus enabling the business to scale up quickly.
 
@@ -61,4 +61,4 @@ Express-session was used to detect when a particular user was logged in, or in s
 
 Route protection middleware
 
-A middleware code was written as a separate JS file/function and called on certain routes that required user authentication.
+A middleware code was written as a separate JS file/function and imported and required/inserted as a parameter on certain routes that required user authentication.
