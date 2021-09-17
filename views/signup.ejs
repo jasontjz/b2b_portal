@@ -1,6 +1,6 @@
 <%- include("partials/header.ejs") %> <%- include("partials/alert.ejs") %>
 <div class="container">
-  <h2>Sign up</h2>
+  <h2 class="mb-3">Sign up</h2>
   <form method="POST" action="/users/signup">
     <div class="mb-3">
       <label for="username" class="form-label">Username:</label>
@@ -10,8 +10,8 @@
       <label for="password" class="form-label">Password:</label>
       <input type="password" name="password" class="form-control" />
     </div>
-    <div>
-      <input type="submit" class="btn btn-primary mb-3" value="Sign up" />
+    <div class="mb-3">
+      <input type="submit" class="btn btn-primary" value="Sign up" />
     </div>
   </form>
 </div>

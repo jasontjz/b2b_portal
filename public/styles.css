@@ -74,3 +74,11 @@ a:hover {
 .sold-out {
   color: darkred;
 }
+
+.form-control {
+  width: 600px;
+}
+
+.container .mb-3 {
+  margin: auto;
+}
