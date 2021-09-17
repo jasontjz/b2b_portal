@@ -67,7 +67,7 @@ Route protection middleware
 
 A middleware code was written as a separate JS file/function and imported and required/inserted as a parameter on certain routes that required user authentication.
 
----
+    				------------------------------------------
 
 Google maps
 
